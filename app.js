@@ -1,3 +1,10 @@
+/**********************************
+ * Objetivo: API para retornar dados de perfil, contatos e conversas do usuário
+ * Data: 11/02/2025
+ * Autora: Thayná de Oliveira Freire
+ * Versão 1.0
+ */
+
 const express = require('express');
 const cors = require('cors');
 const functionsContatos = require('./modulo/funcoes.js');
