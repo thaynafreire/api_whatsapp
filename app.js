@@ -5,6 +5,19 @@ const functionsContatos = require('./modulo/funcoes.js');
 const app = express();
 app.use(cors());
 
+
+app.get('/v1/whatsapp/data/user/contacts/', async function(request, response) {
+    let id = parseInt(request.query.id);
+    let contatos = functionsContatos.getTodosOsContatos(id);
+
+    if (contatos) {
+        response.status(200).json(contatos);
+    } else {
+        response.status(404).json({ 'status': 404, 'message': "Not found" });
+    }
+});
+
+
 app.get('/v1/whatsapp/data/user/unalterable/', async function(request, response) {
     let id = parseInt(request.query.id);
     let dados = functionsContatos.getDadosUsuarioN(id);
@@ -79,7 +92,7 @@ app.listen(8080, function() {
 });
 
 
-//TESTES NO POSTMAN
+//testes
 //http://localhost:8080/v1/whatsapp/data/user/unalterable/?id=1
 //http://localhost:8080/v1/whatsapp/data/user/editable/?id=1
 //http://localhost:8080/v1/whatsapp/data/contact/user/?id=1

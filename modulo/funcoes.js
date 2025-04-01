@@ -1,5 +1,19 @@
 const contatosN = require('./contatos.js')
 
+//listar todos os contatos do usuario 
+const getTodosOsContatos = function (id) {
+    let contatosUsuario = null;
+
+    usuarios.forEach(function(user) {
+        if (user.id === id) {
+            contatosUsuario = { contatos: user.contacts };
+        }
+    });
+
+    return contatosUsuario || false;
+};
+
+
 
 const getDadosUsuarioN = function (id) {
     let dadoNaoAlteravel = null
@@ -151,6 +165,7 @@ module.exports = {
     getDadosDeCadaUsuario,
     getListaDeConversas,
     filtroIdENome,
-    filtroPalavraChave
+    filtroPalavraChave,
+    getTodosOsContatos
 }
 
